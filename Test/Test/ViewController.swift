@@ -51,7 +51,6 @@ class ViewController: UIViewController {
         
         var _locationManager = CLLocationManager()
         _locationManager.delegate = self
-        _locationManager.desiredAccuracy = 60.0 // 60 meters
         
         return _locationManager
         
@@ -77,6 +76,9 @@ class ViewController: UIViewController {
         locationManager.requestWhenInUseAuthorization()
         
         if CLLocationManager.locationServicesEnabled() {
+            
+            // Set accuracy
+            locationManager.desiredAccuracy = 60.0 // 60 meters
             
             // Request location
             locationManager.requestLocation()
